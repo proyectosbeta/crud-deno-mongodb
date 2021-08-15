@@ -1,0 +1,51 @@
+[
+    {
+        "id": "1",
+        "title": "JavaScript: La guía definitiva",
+        "description": "JavaScript es el lenguaje interpretado más utilizado, principalmente en la construcción de páginas Web, con una sintaxis muy semejante a Java y a C. Pero, al contrario que Java, no se trata de un lenguaje orientado a objetos propiamente dicho, sino que éste está basado en prototipos.",
+        "author": "David Flanagan",
+        "link" : "https://www.amazon.com/-/es/JavaScript-definitiva-Definitive-Guide-Spanish/dp/8441522022"
+    },
+    {
+        "id": "2",
+        "title": "El camino a un mejor programador",
+        "description": "Recopila artículos sobre ingeniería informática. La mayoría de los artículos tratan sobre pruebas automáticas de una manera u otra, pero el tema común es mejorar como profesional de la informática.",
+        "author": "Esteban Manchado Velázquez",
+        "link": "https://emanchado.github.io/camino-mejor-programador/downloads/camino_2013-01-19_0688b6e.pdf"
+    },
+    {
+        "id": "3",
+        "title": "Código limpio: manual de estilo para el desarrollo ágil de software",
+        "description": "Cada año, se invierten innumerables horas y se pierden numerosos recursos debido a código mal escrito, ralentizando el desarrollo, disminuyendo la productividad, generando graves fallos e incluso pudiendo acabar con la organización o empresa.",
+        "author": "Robert C. Martin",
+        "link": "https://www.amazon.com/gp/product/8441532109"
+    },
+    {
+        "id": "4",
+        "title": "El Libro Negro del Programador: cómo conseguir una carrera de éxito desarrollando software y cómo evitar los errores habituales",
+        "description": "Muestra qué distingue a un programador neófito de quien actúa y trabaja profesionalmente. Si como programador quieres llegar a ser no sólo bueno sino profesional, no puedes dejar de conocer las gemas de sabiduría que contiene El Libro Negro del Programador.",
+        "author": "Rafael Gómez Blanes",
+        "link": "https://www.amazon.com/-/es/Rafael-G%C3%B3mez-Blanes-ebook/dp/B00J5RHHNW"
+    },
+    {
+        "id": "5",
+        "title": "El Libro Práctico del Programador Ágil",
+        "description": "Una introducción al ciclo completo de desarrollo de software desde un enfoque ágil. Este libro reúne las prácticas más habituales de código limpio, refactoring, principios de diseño, testing y gestión de la configuración, junto con reflexiones acerca de la naturaleza creativa y artística del software y técnicas de productividad para desarrolladores. Si te gustó El Libro Negro del Programador, en este nuevo trabajo de Rafael Gómez Blanes, encontrarás las claves esenciales para cualquier programador profesional, con decenas de ejemplos extraídos de proyectos reales en C# y Javascript. Con presentación de Aurelio Gandarillas, experto en testing y calidad de software.",
+        "author": "Rafael Gómez Blanes",
+        "link": "https://www.amazon.com/-/es/Rafael-G%C3%B3mez-Blanes-ebook/dp/B07MDKYW5C"
+    },
+    {
+        "id": "6",
+        "title": "El gran libro de HTML5, CSS3 y Javascript",
+        "description": "Con este manual aprenderá, a través de ejercicios prácticos soportados por sólidos conocimientos teóricos, a crear toda clase de sitios webs y aplicaciones estructuradas en HTML5, con estilos CS3 y programadas con las más importantes y recientes herramientas de Javascript. Estudiará desde los conceptos más básicos y tradicionales de cada uno de los lenguajes hasta los más utilizados por verdaderos profesionales de la programación. En cada capítulo irá desarrollando diversos códigos que irán ganando complejidad a medida que se avanza en la lección y harán mucho más accesibles los conceptos previamente estudiados. Mediante el uso de los componentes de los tres lenguajes, las nuevas API que ofrece Javascript y librerías externas, aprenderá a escribir sus propios códigos para crear, programar y optimizar formularios, personalizar la forma en la que se reproduce un archivo de vídeo o de audio, insertar una o más pistas de subtítulos en un vídeo, controlar la entrada y salida de cualquier elemento en el modo de pantalla completa, capturar vídeo en streamig, crear gráficos y animaciones de dos y tres dimensiones, programar un vídeo juego, controlar la apariencia y la forma en la que se comporta el ratón en determinadas circunstancias, utilizar la geolocalización, manipular la historia de navegación del usuario, optimizar el funcionamiento fuera de línea de su sitio, crear aplicaciones de mensajería digital y otras formas de comunicación bidireccional, entre muchos otros conocimientos.",
+        "author": "Diego Gauchat Juan",
+        "link": "https://www.amazon.com/-/es/gran-libro-HTML5-Javascript-Spanish-ebook/dp/B07QHBP8T4"
+    },
+    {
+        "id": "7",
+        "title": "C/C++. Curso de programación",
+        "description": "C/C++, a diferencia de otros lenguajes, como Java, permite programar desde ensamblador hasta programación orientada a objetos. Esto lo hace perfecto a nivel didáctico y muy potente a nivel profesional. El lenguaje C/C++ se utiliza en sistemas operativos de ordenadores y de dispositivos móviles, en software para oficinas, sistemas gestores de bases de datos, navegadores web, software de correo electrónico, entornos de desarrollo, editores gráficos, buscadores, sitios web, servidores, sistemas GPS, entre otros. Por ello, actualmente se encuentran numerosas ofertas de trabajo en grandes compañías, como Google, en las que se requiere conocimientos de C/C++. En el mercado desde 2005, el Manual Imprescindible de C/C++ se ha convertido en un referente en el mundo de la programación, y en un aliado de jóvenes y adultos a la hora de superar asignaturas de programación en cualquier nivel. Este título, con varias ediciones en su haber, se ha convertido en un clásico, un libro imprescindible para aprender programación.",
+        "author": "Diego Gauchat Juan",
+        "link": "https://www.amazon.com/-/es/Miguel-%C3%81ngel-Acera-Garc%C3%ADa/dp/8441539375"
+    }
+]
