@@ -50,4 +50,32 @@ deno cache --reload app.ts
 Method GET:
 
 - [All books](http://localhost:4500/api/book)
-- [Book id](http://localhost:4500/api/book/1)
+- [Get a book](http://localhost:4500/api/book/id)
+
+Method POST:
+
+- [Create book](http://localhost:4500/api/book)
+```json
+{
+    "title": "JavaScript",
+    "description": "The best book for JavaScript developer",
+    "author": "Peter Parker",
+    "link": "www.amazon.com"
+}
+```
+
+Method PUT:
+
+- [Update book](http://localhost:4500/api/book/id)
+```json
+{
+    "title": "JavaScript",
+    "description": "The best book for JavaScript developer",
+    "author": "Peter Parker Smith",
+    "link": "www.amazon.de"
+}
+```
+
+Method Delete:
+
+- [Delete book](http://localhost:4500/api/book/id)
