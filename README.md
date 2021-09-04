@@ -5,6 +5,8 @@ An example of an API in deno using Oak and MongoDB.
 # Tecnologies
 
 - DenoJS
+- OAK
+- MongoDB
 
 # Development
 
