@@ -3,17 +3,17 @@ import {
     getBooks,
     getBook,
     createBook,
-    updateBook,
-    deleteBook
+    // updateBook,
+    // deleteBook
 } from "../controllers/book.controllers.ts";
 
 const router = new Router();
 
 router
-  .get("/book", getBooks)
-  .get("/book/:id", getBook)
-  .post("/book", createBook)
-  .put("/book/:id", updateBook)
-  .delete("/book/:id", deleteBook);
+  .get("/api/book", getBooks)
+  .get("/api/book/:id", getBook)
+  .post("/api/book", createBook);
+  // .put("/api/book/:id", updateBook)
+  // .delete("/api/book/:id", deleteBook);
 
 export { router };

@@ -29,7 +29,7 @@ APP_DOMAIN="http://xxx.xxx.xxx.xxx:4500/"
 ## Run
 
 ```bash
-deno run --allow-net --allow-read app.ts
+deno run --allow-net --allow-read --unstable app.ts
 ```
 
 ## Upgrade Deno
@@ -43,5 +43,5 @@ deno cache --reload app.ts
 
 Method GET:
 
-- [All books](http://localhost:4500/book)
-- [Book id](http://localhost:4500/book/1)
+- [All books](http://localhost:4500/api/book)
+- [Book id](http://localhost:4500/api/book/1)
