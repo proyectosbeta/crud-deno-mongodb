@@ -8,6 +8,12 @@ An example of an API in deno using Oak and MongoDB.
 
 # Development
 
+## Install
+
+```bash
+deno install --allow-read --allow-run --allow-write -f --unstable https://deno.land/x/denon/denon.ts
+```
+
 ## Config
 
 Copy .env.example file
@@ -29,7 +35,7 @@ APP_DOMAIN="http://xxx.xxx.xxx.xxx:4500/"
 ## Run
 
 ```bash
-deno run --allow-net --allow-read --unstable app.ts
+denon start
 ```
 
 ## Upgrade Deno
