@@ -117,13 +117,19 @@ const updateBook = async (ctx : RouterContext) => {
         }
       );
 
-      if (matchedCount) {
+      if (!matchedCount) {
+        ctx.response.status = 404;
         ctx.response.body = {
-          success: true,
-          body: `Updated book with id: ${id}`,
-        }
-        ctx.response.status = 204;
+          message: "Book does not exist"
+        };
+
+        return;
       }
+
+      ctx.response.body = await Book.findOne(
+      {
+        _id: new Bson.ObjectId(id)
+      });
     } else {
       ctx.response.body = {
         success: false,
