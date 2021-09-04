@@ -1,82 +1,75 @@
-import { Book } from "../config/db.ts";
+import { RouterContext } from "../../deps.ts";
+import { Bson, Book } from "../config/db.ts";
 
-/**
- * DESC: GET all books
- * METHOD GET /api/book
- */
-const getBooks = async ({ response }: { response: any }) => {
+// @desc            Get all books
+// @routes          GET /api/books
+const getBooks = async (ctx : RouterContext) => {
     try {
       // Find all books and convert them into an Array.
       const allBooks = await Book.find({}).toArray();
 
       if (allBooks) {
-        response.status = 200;
-        response.body = {
+        ctx.response.status = 200;
+        ctx.response.body = {
           success: true,
           data: allBooks,
         };
       } else {
-        response.status = 500;
-        response.body = {
+        ctx.response.status = 500;
+        ctx.response.body = {
           success: false,
-          msg: "Internal Server Error",
+          message: "Internal Server Error",
         };
       }
     }
     catch (err) {
-      response.body = {
+      ctx.response.body = {
         success: false,
-        msg: err.toString(),
+        message: err.toString(),
       };
     }
 };
 
-/**
- * DESC: GET single book
- * METHOD: GET /api/book/:id
- */
- const getBook = async ({
-  params,
-  response,
-}: {
-  params: { id: string };
-  response: any;
-}) => {
-  // Searches for a particular book in the DB.
+// @desc            Get one book
+// @routes          GET /api/book
+ const getBook = async (ctx : RouterContext) => {
+  const { id } = ctx.params;
   const book = await Book.findOne({
-    _id: params.id
+    _id: new Bson.ObjectId(id)
   });
 
   // If found, respond with the book.
   // If not, respond with a 404
   if (book) {
-    response.status = 200;
-    response.body = {
+    ctx.response.status = 200;
+    ctx.response.body = {
       success: true,
       data: book,
     };
   } else {
-    response.status = 404;
-    response.body = {
+    ctx.response.status = 404;
+    ctx.response.body = {
       success: false,
-      msg: "No book found",
+      message: "No book found",
     };
   }
 };
 
-/**
- * DESC: ADD single book
- * METHOD: POST /api/book
- */
-let createBook = async ({
-  request,
-  response,
-}: {
-  request: any;
-  response: any;
-}) => {
+// @desc            Add a book
+// @routes          POST /api/book
+let createBook =async (ctx : RouterContext) => {
     try {
-      let body: any = await request.body();
+      if (!ctx.request.hasBody) {
+        ctx.response.status = 400;
+        ctx.response.body = {
+            success: false,
+            message: 'No data'
+        }
+          
+        return;
+      }
+
+      let body: any = await ctx.request.body();
       const { title, description, author, link } = await body.value;
       const data = await Book.insertOne({
         title: title,
@@ -87,75 +80,87 @@ let createBook = async ({
 
       console.log(body);
       
-      response.body = {
+      ctx.response.body = {
         status: true,
         data: data
       };
-      response.status = 201;
+      ctx.response.status = 201;
     }
     catch (err) {
-      response.body = {
+      ctx.response.body = {
         status: false,
         data: null
       };
-      response.status = 500;
+      ctx.response.status = 500;
       console.log(err);
     }
 };
 
-// /**
-//  * Updates an existing book.
-//  */
-// const updateBook = async ({
-//   params,
-//   request,
-//   response,
-// }: {
-//   params: { id: string };
-//   request: any;
-//   response: any;
-// }) => {
-//   const book = books.filter((book) => book.id == params.id[0]);
-//   if (book) {
-//     const body = await request.body();
-//     // book.title = body.value.title;
-//     // book.description = body.value.description;
-//     // book.author = body.value.author;
+// @desc            Get all book
+// @routes          PUT /api/book/:id
+const updateBook = async (ctx : RouterContext) => {
+  try {
+    const body = await ctx.request.body();
+    const inputBook = await body.value;
+    const { id } = ctx.params;
+    const fetchedBook = await Book.findOne({
+      _id: new Bson.ObjectId(id)
+    });
 
-//     console.log(body.value);
+    if (fetchedBook) {
+      const { matchedCount } = await Book.updateOne(
+        {
+          _id: new Bson.ObjectId(id)
+        },
+        {
+          $set: { ...inputBook }
+        }
+      );
 
-//     response.status = 200;
-//     response.body = {
-//       success: true,
-//       data: book,
-//     };
-//   } else {
-//     response.status = 404;
-//     response.body = {
-//       success: false,
-//       message: "Book not found",
-//     };
-//   }
-// };
+      if (matchedCount) {
+        ctx.response.body = {
+          success: true,
+          body: `Updated book with id: ${id}`,
+        }
+        ctx.response.status = 204;
+      }
+    } else {
+      ctx.response.body = {
+        success: false,
+        body: `No book with id: ${id} found`,
+      }
+      ctx.response.status = 404;
+    }
+  } catch (error) {
+    ctx.response.body = {
+      success: false,
+      body: error.message,
+    }
+    ctx.response.status = 500;
+  }
+};
 
-// /**
-//  * Delete a book by a given id
-//  */
-// const deleteBook = ({
-//   params,
-//   response,
-// }: {
-//   params: { id: string };
-//   response: any;
-// }) => {
-//   books = books.filter((book) => book.id !== params.id);
-//   response.status = 200;
-//   response.body = {
-//     success: true,
-//     message: "Book removed",
-//   };
-// };
+// @desc            Delete a book
+// @routes          DELETE /api/book/:id
+const deleteBook = async (ctx: RouterContext) => {
+  try {
+    const { id } = ctx.params;
 
-export { getBooks, getBook, createBook };
+    await Book.deleteOne({
+      _id: new Bson.ObjectId(id)
+    });
 
-// export { getBooks, getBook, createBook, updateBook, deleteBook };
+    ctx.response.status = 201;
+    ctx.response.body = {
+      success: true,
+      message: "Book deleted",
+    };
+  } catch (err) {
+    ctx.response.body = {
+      success: false,
+      message: err.toString(),
+    };
+  }
+};
+
+export { getBooks, getBook, createBook, updateBook, deleteBook };

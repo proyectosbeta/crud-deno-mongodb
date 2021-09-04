@@ -1,4 +1,4 @@
-import { MongoClient } from "https://deno.land/x/mongo@v0.25.0/mod.ts";
+import { Bson, MongoClient } from "https://deno.land/x/mongo/mod.ts";
 import { BookSchema } from "../types/BookSchema.ts";
 
 const URI = "mongodb://127.0.0.1:27017";
@@ -15,4 +15,4 @@ try {
 const dataBase = client.database(dataBaseName);
 const Book = dataBase.collection<BookSchema>("book");
 
-export { Book };
+export { Bson, Book };
