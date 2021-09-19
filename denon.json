@@ -3,7 +3,7 @@
     "env": {},
     "scripts": {
       "start": {
-        "cmd": "deno run --allow-net --allow-read --unstable app.ts"
+        "cmd": "deno run --unstable --allow-net --allow-read app.ts"
       }
     }
 }

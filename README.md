@@ -44,7 +44,7 @@ denon start
 
 ```bash
 deno upgrade
-deno cache --reload app.ts
+deno cache --reload app.ts --unstable
 ```
 
 # Try in API client
